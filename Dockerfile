@@ -18,7 +18,7 @@
 
 # Debian Buster statt Alpine wegen Python und GNU C++
 # d.h. 900 MB statt 100 MB
-FROM node:14.11.0-buster
+FROM node:14.13.1-buster
 
 # Verzeichnis erstellen
 WORKDIR /usr/src/app

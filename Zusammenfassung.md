@@ -36,9 +36,6 @@ GPL v3
 - AsciiDoctor mit PlantUML
 - reveal.js
 - Heroku mit Procfile einschl. Atlas sowie VS Code mit `<Strg><Shift>p`
-- SonarQube
-- Jenkins
-- Dockerfile 
 
 ## MEAN
 
