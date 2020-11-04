@@ -32,7 +32,7 @@ const startSonarQube = () => {
     const hostPort = '9000';
     console.log(
         `URL fuer den SonarQube-Container: http://localhost:${hostPort}`,
-    );  
+    );
     console.log('');
     // login=admin, password=Software Engineering WI.
 
@@ -41,7 +41,7 @@ const startSonarQube = () => {
         // prettier-ignore
         'docker run --publish 9000:9000 ' +
             `--mount type=bind,source=${resolve(sonarqubeDir, 'data')},destination=/opt/sonarqube/data ` +
-            `--mount type=bind,source=${resolve(sonarqubeDir, 'logs')},destination=/opt/sonarqube/logs ` +  
+            `--mount type=bind,source=${resolve(sonarqubeDir, 'logs')},destination=/opt/sonarqube/logs ` +
             '--env TZ=Europe/Berlin ' +
             `--name ${containerName} --rm ` +
             `sonarqube:${version}`,
