@@ -23,7 +23,7 @@ GPL v3
 
 ## Entwicklungsumgebung
 
-- Konfig-Dateien, Verzeichniss
+- Konfig-Dateien, Verzeichnisse
 - package.json einschl. dependencies, devDependencies und scripts
 - node_modules
 - ESLint mit .eslintrc.yml
