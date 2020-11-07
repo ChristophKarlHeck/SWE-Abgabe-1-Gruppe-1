@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 = Entwicklerhandbuch
-Jürgen Zimmermann <Juergen.Zimmermann@HS-Karlsruhe.de>
+Christoph Heck, Stefanie Schynol, Robin Pape, Joyce Odiagbe
 :doctype: book
 :toc: left
 :sectanchors:
@@ -30,7 +30,7 @@ Jürgen Zimmermann <Juergen.Zimmermann@HS-Karlsruhe.de>
 // http://de.plantuml.com/component.html
 // https://github.com/odrotbohm/asciidoctor-plantuml
 
-IMPORTANT: Copyright (C) 2020 - present Jürgen Zimmermann, Hochschule Karlsruhe. +
+IMPORTANT: Copyright (C) 2020 - present Christoph Heck, Stefanie Schynol, Robin Pape, Joyce Odiagbe, Hochschule Karlsruhe. +
            Free use of this software is granted under the terms of the
            GNU General Public License (GPL) v3. +
            For the full text of the license, see the http://www.gnu.org/licenses/gpl-3.0.html[license] file.
@@ -39,7 +39,7 @@ IMPORTANT: Copyright (C) 2020 - present Jürgen Zimmermann, Hochschule Karlsruhe
 
 === Der Applikationsserver im Überblick
 
-bla bla
+Die Aktivitäten der Rollen Admin und Gast werden hier angezeigt.
 
 .Use Cases
 [plantuml,use-cases,svg]
@@ -47,7 +47,7 @@ bla bla
 include::use-cases.puml[]
 ----
 
-bla bla
+Die benötigte Komponenten werden hier abgebildet. 
 
 .Komponentendiagramm
 [plantuml,komponenten,svg]
@@ -57,32 +57,32 @@ include::komponenten.puml[]
 
 === Die REST-Schnittstelle
 
-bla bla
+Hier wird ein Boundary-Control-Entity Pattern gebildet. In Boundary wird die API dargestellt und in Control werden die Geschäftsvorfälle realisiert, beziehungsweise der Ablauf gesteuert. In Entity werden Entity Objekte passend zur Anwendung abgebildet. 
 
 .Handler für die REST-Schnittstelle
-[plantuml,BuchHandler,svg]
+[plantuml,FilmHandler,svg]
 ----
-include::BuchHandler.puml[]
+include::FilmHandler.puml[]
 ----
 
 === Der Anwendungskern
 
-bla bla
+In diesem Diagramm sehen wir, dass die Daten verarbeitet werden. Objekte können nach der ID gefiltert, erstellt, gelöscht oder aktualisiert werden. 
 
 .Anwendungskern mit Mongoose
-[plantuml,BuchService,svg]
+[plantuml,FilmService,svg]
 ----
-include::BuchService.puml[]
+include::FilmService.puml[]
 ----
 
 === Interface für Entities und das Mongoose-Model
 
-bla bla
+Dieses Diagramm zeigt die Abhängigkeiten und die Werte der Enums.  
 
 .Entity, Model und Schema
-[plantuml,Buch,svg]
+[plantuml,Film,svg]
 ----
-include::Buch.puml[]
+include::Film.puml[]
 ----
 
 == Programmierrichtlinien für TypeScript und JavaScript

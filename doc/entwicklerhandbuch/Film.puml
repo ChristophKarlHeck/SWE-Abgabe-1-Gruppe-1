@@ -25,52 +25,52 @@ package mongoose {
   hide model circle
 }
 
-package buch.entity {
-  class "validateBuch()" as validateBuch
-  hide validateBuch circle
+package film.entity {
+  class "validateFilm()" as validateFilm
+  hide validateFilm circle
 
-  class BuchModel
-  hide BuchModel circle
+  class FilmModel
+  hide FilmModel circle
 
-  BuchModel ..> Schema
-  BuchModel ..> model
-  BuchModel ..> validateBuch
+  FilmModel ..> Schema
+  FilmModel ..> model
+  FilmModel ..> validateFilm
 
-  BuchData ..> BuchArt
-  BuchData ..> Verlag
+  FilmData ..> FilmArt
+  FilmData ..> Studio
 
-  enum BuchArt {
-    KINDLE
-    DRUCKAUSGABE
+  enum FilmArt {
+    HORROR
+    ACTION
   }
 
-  enum Verlag {
-    FOO_VERLAG
-    BAR_VERLAG
+  enum Studio {
+    UNIVERSAL
+    SCIENCE_FICTION
   }
 
-  interface BuchData <<entity>> {
+  interface FilmData <<entity>> {
     + _id?: string
     + __v?: number
     + createdAt?: number
     + updatedAt?: number
     + titel: string
-    + rating?: number
-    + art?: BuchArt
-    + verlag: Verlag
+    + bewertung?: number
+    + art?: FilmArt
+    + studio: Studio
     + preis: number
     + rabatt?: number
     + lieferbar?: boolean
     + datum?: Date
-    + isbn: string
+    + filmnr: string
     + homepage?: string
     + schlagwoerter?: Array<string>
-    + autoren: any
+    + reggiseure: any
   }
 }
 
 hide empty members
 
-footer (c) Jürgen Zimmermann
+footer (c) Christoph Heck, Stefanie Schynol, Robin Pape, Joyce Odiagbe
 
 @enduml

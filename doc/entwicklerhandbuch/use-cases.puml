@@ -22,16 +22,16 @@ actor Gast
 actor Admin
 
 rectangle kunde {
-    Gast --> (Buch suchen)
-    Gast --> (Datei herunterladen)
-    Admin --> (Buch suchen)
-    Admin --> (Buch anlegen)
-    Admin --> (Buch ändern)
-    Admin --> (Buch löschen)
-    Admin --> (Datei hochladen)
-    Admin --> (Datei herunterladen)
+    Gast --> (Film suchen)
+    Gast --> (Trailer herunterladen)
+    Admin --> (Film suchen)
+    Admin --> (Film anlegen)
+    Admin --> (Film ändern)
+    Admin --> (Film löschen)
+    Admin --> (Trailer hochladen)
+    Admin --> (Trailer herunterladen)
 }
 
-footer (c) Jürgen Zimmermann
+footer (c) Christoph Heck, Stefanie Schynol, Robin Pape, Joyce Odiagbe
 
 @enduml

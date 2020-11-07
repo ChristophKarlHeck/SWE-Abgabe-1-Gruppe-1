@@ -26,16 +26,16 @@ node "Funktionen mit Express" {
 }
 
 node "Klassen / objektorientiert" {
-  [BuchHandler]
-  [BuchFileHandler]
+  [FilmHandler]
+  [FilmFileHandler]
 
-  [BuchService]
-  [BuchFileService]
+  [FilmService]
+  [FilmFileService]
 }
 
 [sendMail()] as sendMail
 
-entity BuchModel
+entity FilmModel
 
 cloud {
     [Mongoose]
@@ -50,7 +50,7 @@ cloud {
 }
 
 database "acme (MongoDB)" {
-    [Collection Buch]
+    [Collection Film]
     [GridFS]
 }
 
@@ -61,23 +61,23 @@ node {
 
 RESTClient ~~> [Router]
 [Router] ..> [Handler Functions]
-[Handler Functions] ..> [BuchHandler]
-[Handler Functions] ..> [BuchFileHandler]
+[Handler Functions] ..> [FilmHandler]
+[Handler Functions] ..> [FilmFileHandler]
 
-[BuchHandler] --> [BuchService]
-[BuchFileHandler] --> [BuchFileService]
-[BuchService] ..> [BuchModel]
-[BuchFileService] ..> [BuchModel]
+[FilmHandler] --> [FilmService]
+[FilmFileHandler] --> [FilmFileService]
+[FilmService] ..> [FilmModel]
+[FilmFileService] ..> [FilmModel]
 
-[BuchModel] ~~> [Mongoose]
-[BuchFileService] ~~> [MongDB\nNative Driver]
+[FilmModel] ~~> [Mongoose]
+[FilmFileService] ~~> [MongDB\nNative Driver]
 [sendMail] ~~> [nodemailer]
-[Mongoose] ~~> [Collection Buch]
+[Mongoose] ~~> [Collection Film]
 [MongDB\nNative Driver] ~~> [GridFS]
 
-[BuchService] --> [sendMail]
+[FilmService] --> [sendMail]
 [nodemailer] ~~> [Mailserver]
 
-footer (c) Jürgen Zimmermann
+footer (c) Christoph Heck, Stefanie Schynol, Robin Pape, Joyce Odiagbe
 
 @enduml
