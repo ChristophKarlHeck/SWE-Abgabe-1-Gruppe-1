@@ -35,13 +35,13 @@ import {
     findById,
     update,
     upload,
-} from './buch/rest';
-import { index, neuesBuch, suche } from './buch/html';
+} from './film/rest';
+import { index, neuerFilm, suche } from './film/html';
 import { isAdmin, isAdminMitarbeiter, login, validateJwt } from './auth';
 // Einlesen von application/json im Request-Rumpf
 // Fuer multimediale Daten (Videos, Bilder, Audios): raw-body
 import { json, urlencoded } from 'body-parser';
-import { resolvers, typeDefs } from './buch/graphql';
+import { resolvers, typeDefs } from './film/graphql';
 import { ApolloServer } from 'apollo-server-express';
 import type { ApolloServerExpressConfig } from 'apollo-server-express';
 import type { Options } from 'express-rate-limit';
@@ -70,8 +70,8 @@ const limiter = rateLimit(rateLimitOptions);
 
 const apiPath = '/api';
 export const PATHS = {
-    buecher: `${apiPath}/buecher`,
-    verlage: `${apiPath}/verlage`,
+    filme: `${apiPath}/filme`,
+    studios: `${apiPath}/studios`,
     login: `${apiPath}/login`,
     graphql: '/graphql',
     html: '/html',
@@ -131,17 +131,17 @@ class App {
     }
 
     private routes() {
-        this.buecherRoutes();
-        this.verlagRoutes();
+        this.filmeRoutes();
+        this.studioRoutes();
         this.loginRoutes();
-        this.buchGraphqlRoutes();
+        this.filmGraphqlRoutes();
         this.htmlRoutes();
 
         this.app.get('*', notFound);
         this.app.use(internalError);
     }
 
-    private buecherRoutes() {
+    private filmeRoutes() {
         // vgl: Spring WebFlux.fn
         // https://expressjs.com/en/api.html#router
         // Beispiele fuer "Middleware" bei Express:
@@ -187,13 +187,13 @@ class App {
             .put(`/:${idParam}/file`, validateJwt, isAdminMitarbeiter, upload)
             .get(`/:${idParam}/file`, download);
 
-        this.app.use(PATHS.buecher, router);
+        this.app.use(PATHS.filme, router);
     }
 
-    private verlagRoutes() {
+    private studioRoutes() {
         const router = Router(); // eslint-disable-line new-cap
         router.get('/', notYetImplemented);
-        this.app.use(PATHS.verlage, router);
+        this.app.use(PATHS.studios, router);
     }
 
     private loginRoutes() {
@@ -208,7 +208,7 @@ class App {
         this.app.use(PATHS.login, router);
     }
 
-    private buchGraphqlRoutes() {
+    private filmGraphqlRoutes() {
         const { playground } = serverConfig;
         // https://www.apollographql.com/docs/apollo-server/data/resolvers/#passing-resolvers-to-apollo-server
         const config: ApolloServerExpressConfig = {
@@ -226,7 +226,7 @@ class App {
         const router = Router(); // eslint-disable-line new-cap
         router.route('/').get(index);
         router.route('/suche').get(suche);
-        router.route('/neues-buch').get(neuesBuch);
+        router.route('/neuer-film').get(neuerFilm);
         this.app.use(PATHS.html, router);
 
         // Alternativen zu Pug: EJS, Handlebars, ...
