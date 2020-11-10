@@ -18,16 +18,16 @@
 import type { Collection, Db, MongoClient } from 'mongodb';
 import { dbConfig, serverConfig } from './../config';
 import { GridFSBucket } from 'mongodb';
-import { buecher } from './buecher';
 import { connectMongoDB } from './mongoDB';
 import { createReadStream } from 'fs';
+import { filme } from './filme';
 import { logger } from '../logger';
 import { resolve } from 'path';
 import { saveReadable } from './gridfs';
 
 const createCollection = async (db: Db) => {
     // http://mongodb.github.io/node-mongodb-native/3.5/api/Db.html#dropCollection
-    const collectionName = 'Buch';
+    const collectionName = 'Film';
     logger.warn(`Die Collection "${collectionName}" wird geloescht...`);
     let dropped = false;
     try {
@@ -51,7 +51,7 @@ const createCollection = async (db: Db) => {
     );
 
     // http://mongodb.github.io/node-mongodb-native/3.5/api/Collection.html#insertMany
-    const result = await collection.insertMany(buecher);
+    const result = await collection.insertMany(filme);
     logger.warn(`${result.insertedCount} Datensaetze wurden eingefuegt.`);
 
     return collection;
@@ -66,7 +66,7 @@ const createIndex = async (collection: Collection) => {
     // Beachte: bei createIndexes() gelten die Optionen fuer alle Indexe
     let index = await collection.createIndex('titel', { unique: true });
     logger.warn(`Der Index ${index} wurde angelegt.`);
-    index = await collection.createIndex('isbn', { unique: true });
+    index = await collection.createIndex('filmNr', { unique: true });
     logger.warn(`Der Index ${index} wurde angelegt.`);
     index = await collection.createIndex('schlagwoerter', { sparse: true });
     logger.warn(`Der Index ${index} wurde angelegt.`);
