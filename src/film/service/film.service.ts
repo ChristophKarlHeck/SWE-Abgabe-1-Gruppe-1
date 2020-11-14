@@ -121,13 +121,13 @@ export class FilmService {
             dbQuery.schlagwoerter = schlagwoerter;
         }
 
-        logger.debug(`BuchService.find(): dbQuery=${JSON5.stringify(dbQuery)}`);
+        logger.debug(`FilmService.find(): dbQuery=${JSON5.stringify(dbQuery)}`);
 
         // Pattern "Active Record" (urspruengl. von Ruby-on-Rails)
         // leeres Array, falls nichts gefunden wird
         // lean() liefert ein "Plain JavaScript Object" statt ein Mongoose Document
         return FilmModel.find(dbQuery).lean<FilmData>();
-        // Buch.findOne(query), falls das Suchkriterium eindeutig ist
+        // Film.findOne(query), falls das Suchkriterium eindeutig ist
         // bei findOne(query) wird null zurueckgeliefert, falls nichts gefunden
     }
 
@@ -283,7 +283,7 @@ export class FilmService {
 
         if (tmpId !== null) {
             logger.debug(
-                `FilmService.checkIsbnExists(): buch=${JSON5.stringify(tmpId)}`,
+                `FilmService.checkIsbnExists(): film=${JSON5.stringify(tmpId)}`,
             );
             return new FilmNrExists(filmNr as string, tmpId);
         }

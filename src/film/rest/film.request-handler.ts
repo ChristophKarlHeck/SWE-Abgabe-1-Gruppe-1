@@ -141,7 +141,7 @@ export class FilmRequestHandler {
 
         // asynchrone for-of Schleife statt synchrones buecher.map()
         for await (const film of filme) {
-            // HATEOAS: Atom Links je Buch
+            // HATEOAS: Atom Links je Film
             // eslint-disable-next-line no-underscore-dangle
             film._links = { self: { href: `${baseUri}/${film._id}` } };
         }
@@ -171,7 +171,7 @@ export class FilmRequestHandler {
 
         const filmData = req.body; // eslint-disable-line @typescript-eslint/no-unsafe-assignment
         logger.debug(
-            `BuchRequestHandler.create(): body=${JSON5.stringify(filmData)}`,
+            `FilmRequestHandler.create(): body=${JSON5.stringify(filmData)}`,
         );
 
         const result = await this.service.create(filmData);
@@ -204,7 +204,7 @@ export class FilmRequestHandler {
         const filmData = req.body; // eslint-disable-line @typescript-eslint/no-unsafe-assignment
         filmData._id = id;
         logger.debug(
-            `FilmRequestHandler.update(): buch=${JSON5.stringify(filmData)}`,
+            `FilmRequestHandler.update(): film=${JSON5.stringify(filmData)}`,
         );
 
         const result = await this.service.update(filmData, version);
