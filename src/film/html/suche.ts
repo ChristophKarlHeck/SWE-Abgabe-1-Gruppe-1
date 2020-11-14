@@ -24,5 +24,5 @@ const filmService = new FilmService();
 export const suche = async (req: Request, res: Response) => {
     logger.error(`suche(): ${req.url}`);
     const filme = await filmService.find();
-    res.render('suche', { title: 'Suche', filme: filme });
+    res.render('suche', { title: 'Suche', filme });
 };
