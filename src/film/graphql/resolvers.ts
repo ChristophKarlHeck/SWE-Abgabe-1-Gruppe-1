@@ -1,10 +1,3 @@
-import {
-    FilmInvalid,
-    FilmNotExists,
-    TitelExists,
-    VersionInvalid,
-    VersionOutdated,
-} from './../service/errors';
 /*
  * Copyright (C) 2018 - present Juergen Zimmermann, Hochschule Karlsruhe
  *
@@ -22,8 +15,18 @@ import {
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Die Referenzimplementierung von GraphQL soll nach TypeScript migriert werden:
+// https://github.com/graphql/graphql-js/issues/2104
+
+import {
+    FilmInvalid,
+    FilmNotExists,
+    TitelExists,
+    VersionInvalid,
+    VersionOutdated,
+} from './../service/errors';
+import { FilmService, FilmServiceError } from '../service';
 import type { Film } from './../entity';
-import { FilmService } from '../service';
 // import type { IResolvers } from 'graphql-tools';
 import { logger } from '../../shared';
 
@@ -69,7 +72,10 @@ const createFilm = async (film: Film) => {
     film.datum = new Date(film.datum as string);
     const result = await filmService.create(film);
     console.log(`resolvers createFilm(): result=${JSON.stringify(result)}`);
-    return result;
+    if (result instanceof FilmServiceError) {
+        return;
+    }
+    return result._id;
 };
 
 const logUpdateResult = (

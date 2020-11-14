@@ -50,7 +50,7 @@ export const typeDefs = gql`
         DISNEY
     }
 
-    "Datenschema eines Filmes, welcher empfangen oder gesendet wird"
+    "Datenschema eines Filmes, das empfangen oder gesendet wird"
     type Film {
         id: ID!
         version: Int
@@ -62,7 +62,7 @@ export const typeDefs = gql`
         rabatt: Float
         lieferbar: Boolean
         datum: String
-        filmNr: String
+        FilmNr: String
         homepage: String
         schlagwoerter: [String]
     }
@@ -87,7 +87,7 @@ export const typeDefs = gql`
             filmNr: String
             homepage: String
             schlagwoerter: [String]
-        ): Film
+        ): String
         updateFilm(
             _id: ID
             titel: String!
