@@ -1,0 +1,13 @@
+{
+  "titel": "Star Wars",
+  "bewertung": 4,
+  "genre": "ACTION",
+  "studio": "DISNEY",
+  "preis": 9999,
+  "rabatt": 99,
+  "lieferbar": true,
+  "datum": "2020-02-01T00:00:00.000Z",
+  "filmNr": "0-0070-9732-8",
+  "homepage": "https://Starwars.de/",
+  "schlagwoerter": ["KLASSIKER", "GEHEIMTIPP"]
+}

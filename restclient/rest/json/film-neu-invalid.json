@@ -1,0 +1,12 @@
+{
+  "titel": "Rambo",
+  "bewertung": 9,
+  "genre": "ACTION",
+  "studio": "UNIVERSAL",
+  "preis": 0,
+  "rabatt": 0,
+  "lieferbar": true,
+  "datum": "12345-123-123",
+  "filmnr": "falsche-filmnr",
+  "homepage": "anyHomepage"
+}

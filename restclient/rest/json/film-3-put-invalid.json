@@ -1,0 +1,14 @@
+{
+  "_id": "00000000-0000-0000-0000-000000000003",
+  "titel": "Karatetiger",
+  "bewertung": 6,
+  "genre": "ACTION",
+  "studio": "UNIVERSAL",
+  "preis": 9999,
+  "rabatt": 99,
+  "lieferbar": true,
+  "datum": "12345-123-123",
+  "filmnr": "falsche-filmnr",
+  "homepage": "anyHomepage",
+  "schlagwoerter": ["KLASSIKER"]
+}

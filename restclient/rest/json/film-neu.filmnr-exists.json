@@ -1,0 +1,19 @@
+{
+  "titel": "Terminator 2",
+  "bewertung": 4,
+  "genre": "ACTION",
+  "studio": "UNIVERSAL",
+  "preis": 99.9,
+  "rabatt": 1,
+  "lieferbar": true,
+  "datum": "2020-02-01T00:00:00.000Z",
+  "filmNr": "978-3897225831",
+  "homepage": "https://terminator.de/",
+  "schlagwoerter": ["KLASSIKER", "GEHEIMTIPP"],
+  "regisseur": [
+    {
+      "vorname": "James",
+      "nachname": "Cameron"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "titel": "Alpha",
+  "bewertung": 4,
+  "genre": "ACTION",
+  "studio": "UNIVERSAL",
+  "preis": 99.9,
+  "rabatt": 1,
+  "lieferbar": true,
+  "datum": "2020-02-01T00:00:00.000Z",
+  "filmNr": "0-0070-0644-6",
+  "homepage": "https://backtothefuture.de/",
+  "schlagwoerter": ["KLASSIKER", "GEHEIMTIPP"],
+  "regisseure": [
+    {
+      "vorname": "Robert",
+      "nachname": "Zemeckis"
+    }
+  ]
+}
